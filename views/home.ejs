@@ -10,19 +10,30 @@
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <!-- Add this inside <head> -->
+        <title>Home Page</title>
+        <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1>URL Shortener</h1>
-   <% if (locals.id) { %>
-   <p>URL Generated: http://localhost:5000/url/<%= id %></p>
-   <% } %>
-<div>
+    <h1>Wel Come URL Shortener</h1>
+    <div>
     <form method="POST" action="/url">
         <label>Enter Your Original URL</label>
         <input type="text" name="url" placeholder="https://example.com">
         <button type="submit">Generate</button>
     </form>
+</div>
+<div class="url">
+   <% if (locals.id) { %>
+   <!-- <p>URL Generated: http://localhost:5000/url/<%= id %></p> -->
+   <!-- <p>URL Generated: href='http://localhost:5000/url/<%= id %>'</p> -->
+    <p>
+        URL Generated:
+        <a href='http://localhost:5000/url/<%= id %>' target="_blank">
+            http://localhost:5000/url/<%= id %>
+        </a>
+    </p>
+   <% } %>
 </div>
 <div>
      <% if (locals.urls) { %>

@@ -8,10 +8,17 @@
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <!-- Add this inside <head> -->
+        <title>Login</title>
+        <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <h1>Login</h1>
+    <!-- In views/signup.ejs -->
+<% if (typeof alert !== 'undefined') { %>
+  <div class="alert"><%= alert %></div>
+<% } %>
+<!-- ...existing signup form... -->
     <form action="/user/login" method="post">
         <label>Email</label>
         <input type="email" required name="email">

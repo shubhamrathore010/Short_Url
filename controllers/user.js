@@ -11,6 +11,7 @@ const { name, email, password } = req.body;
     password,
   });
   return res.render("home");
+  // return res.redirect('/');
    
 }
 
@@ -18,10 +19,13 @@ async function handleUserLogin(req, res) {
   const { email, password } = req.body;
   const user = await User.findOne({ email, password });
 
-  if (!user) 
-    return res.render('login', {
-   error: "Invalid Username or Password",
-  });
+  // if (!user) 
+  //   return res.render('login',{
+  //  error: "Invalid Username or Password",
+  // });
+  if(!user) 
+    return res.render('signup', {alert: "User not found with this gmail, Please sign up first."})
+
 
   // const sessionId = uuidv4();
   // setUser(sessionId, user);
@@ -29,8 +33,8 @@ async function handleUserLogin(req, res) {
 
   const token = setUser(user);
   res.cookie("uid", token);
-  // return res.render('home');
-  return res.redirect('/');
+  return res.render('home');
+  // return res.redirect('/');
 }
 
 module.exports = {

@@ -10,6 +10,7 @@ const staticRoute = require('./routes/staticRouter')
 const userRoute = require('./routes/user')
 
 const app = express();
+app.use(express.static(path.join(__dirname,'public')))
 const port = 5000;
 
 connectToMongoDB('mongodb://127.0.0.1:27017/urlshort')
