@@ -1,7 +1,7 @@
-// const sessionIdToUserMap = new Map();  // clear states
-// create tokens
+
+require('dotenv').config();
 const jwt = require('jsonwebtoken')
-const secret = "Shubham@1234$"
+const secret = process.env.JWT_SECRET
  
 
 function setUser(user) {

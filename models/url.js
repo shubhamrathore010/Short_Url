@@ -17,9 +17,10 @@ createdBy: {
       ref: "users",
 },
 },
-{ timestamp: true }
+{ timestamps: true }
 );
 
-const URL = mongoose.model('url', urlSchema);
+const URL = mongoose.model('URL', urlSchema, 'urls');
+
 
 module.exports = URL;

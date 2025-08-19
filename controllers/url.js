@@ -5,8 +5,8 @@ const URL = require("../models/url")
 async function handleGenerateNewShortURL(req, res) {
    const body = req.body;
    if(!body.url) return res.status(400).json({ error: 'url is required' })
-    // const shortID = shortid.generate(8);
-   const shortID = shortid();
+    const shortID = shortid.generate(6);
+  //  const shortID = shortid();
 
     await URL.create({
         shortId: shortID,
@@ -30,9 +30,20 @@ async function handleGetAnalytics(req, res){
     totalClicks: result.visitHistory.length,
     analytics: result.visitHistory,
 });
-}      
+}
+
+async function restToLoggedUserOnly(req, res){
+
+  const shortUrl = await URL.create({
+    redirectUrl: req.body.longUrl,
+    createdBy: req.user._id,
+  });
+  res.redirect("/");
+}
+
 
 module.exports = {
     handleGenerateNewShortURL,
     handleGetAnalytics,
+    restToLoggedUserOnly,
 }   

@@ -5,6 +5,13 @@ const { setUser } = require('../service/auth')
 async function handleUserSignup(req, res) {
 const { name, email, password } = req.body;
 
+// Check if email already exists
+const existingUser = await User.findOne({ email: req.body.email });
+if(existingUser){
+  
+  return res.render('signup',  { error: "Email already exists" })
+    // return res.status(400).json({ message: "Email already exists" });
+}
   await User.create({
     name,
     email,
@@ -23,6 +30,8 @@ async function handleUserLogin(req, res) {
   //   return res.render('login',{
   //  error: "Invalid Username or Password",
   // });
+
+
   if(!user) 
     return res.render('signup', {alert: "User not found with this gmail, Please sign up first."})
 
@@ -32,9 +41,13 @@ async function handleUserLogin(req, res) {
   // res.cookie("uid", sessionId);
 
   const token = setUser(user);
-  res.cookie("uid", token);
-  return res.render('home');
-  // return res.redirect('/');
+  res.cookie("uid", token, {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production", // only https in prod
+  maxAge: 24 * 60 * 60 * 1000 // 1 day
+  });
+  return res.redirect('/');
+  // return res.render('home');
 }
 
 module.exports = {

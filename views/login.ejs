@@ -13,11 +13,14 @@
         <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1>Login</h1>
+    <div class="login">
+    <h1>LogIn</h1>
+    </div>
     <!-- In views/signup.ejs -->
 <% if (typeof alert !== 'undefined') { %>
   <div class="alert"><%= alert %></div>
 <% } %>
+
 <!-- ...existing signup form... -->
     <form action="/user/login" method="post">
         <label>Email</label>

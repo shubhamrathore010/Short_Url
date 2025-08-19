@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1>Wel Come URL Shortener</h1>
+    <h1>WelCome URL Shortener</h1>
     <div>
     <form method="POST" action="/url">
         <label>Enter Your Original URL</label>
@@ -23,8 +23,8 @@
         <button type="submit">Generate</button>
     </form>
 </div>
-<div class="url">
-   <% if (locals.id) { %>
+<% if (locals.id) { %>
+    <div class="url">
    <!-- <p>URL Generated: http://localhost:5000/url/<%= id %></p> -->
    <!-- <p>URL Generated: href='http://localhost:5000/url/<%= id %>'</p> -->
     <p>
@@ -33,8 +33,8 @@
             http://localhost:5000/url/<%= id %>
         </a>
     </p>
-   <% } %>
 </div>
+   <% } %>
 <div>
      <% if (locals.urls) { %>
     <table>
@@ -44,12 +44,25 @@
             <th>Redirect</th>
             <th>Clicks</th>
         </thead>
+        
         <tbody>
+            <br>
             <% urls.forEach((url, index) => { %>
              <tr>
              <td><%= index + 1 %></td>
-             <td><%= url.shortId %></td>
-             <td><%= url.redirectURL %></td>
+
+             <td>
+                <a href="/url/<%= url.shortId %>" target="_blank">
+                 <%= url.shortId %>
+                </a>
+             </td>
+            <td>
+                <a href="<%= url.redirectURL %>" target="_blank">
+                 <%= url.redirectURL %>
+                </a> 
+            </td>
+             <!-- <td><%= url.shortId %></td>
+             <td><%= url.redirectURL %></td> -->
              <td><%= url.visitHistory.length %></td>
             </tr>
             <% }) %>
