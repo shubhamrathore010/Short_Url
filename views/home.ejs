@@ -15,16 +15,18 @@
         <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1>Welcome URL Shortener</h1>
+    <h1>WelCome URL Shortener</h1>
 <div class="link">
     <form method="POST" action="/url">
-        <label>Past Your long link here</label><br>
-        <input type="text" name="url" placeholder="https://example.com"><br>
-        <button type="submit">Get your link</button><br>
+        <label>Past Your long link here</label>
+        <input type="text" name="url" placeholder="https://example.com">
+        <button type="submit">Get your link</button>
     </form>
 </div>
 <% if (locals.id) { %>
     <div class="url">
+   <!-- <p>URL Generated: http://localhost:5000/url/<%= id %></p> -->
+   <!-- <p>URL Generated: href='http://localhost:5000/url/<%= id %>'</p> -->
     <p>
         URL Generated:
         <a href='http://localhost:5000/url/<%= id %>' target="_blank">
@@ -59,7 +61,8 @@
                  <%= url.redirectURL %>
                 </a> 
             </td>
- 
+             <!-- <td><%= url.shortId %></td>
+             <td><%= url.redirectURL %></td> -->
              <td><%= url.visitHistory.length %></td>
             </tr>
             <% }) %>
