@@ -43,24 +43,33 @@ form {
     color: black;
 }
 
+
 label {
     margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    color: #555;
+    /* margin-bottom: 0.5rem; */
+    color: #161616;
+    font-weight: 600;
+    padding: 20px 0;
+    /* align-items: normal; */
+    text-align: left;
+    font-size: larger;
 }
 input {
-    padding: 0.5rem;
+    padding:1rem;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius:10px;
 }
 button {
     margin-top: 1.5rem;
-    padding: 0.7rem;
+    padding: 1rem;
     background: #007bff;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    text-align: left;
+    width: 200px;
+    font-size: larger;
 }
 button:hover {
     background: #0056b3;
@@ -74,20 +83,24 @@ button:hover {
     text-align: center;
 }
 
+/* .dashboard{
+    background-color: #e74c3c;
+} */
+
  thead th {
    
-     padding: 10px 20px;
+     /* padding: 10px 15px; */
     
     color: #007bff;
 
   border-collapse: separate;
 } 
 /* table td:nth-child(1) */
-table th:nth-child(3) 
+/* table th:nth-child(3) 
  {
 
   min-width: 300px;
-}
+} */
 
 table {
 
@@ -107,16 +120,19 @@ table {
     flex-direction: column;
 }
 tbody td {
-    padding: 10px;
-    border-radius:5px ;
+    
+    border-radius:10px ;
     background-color: #ccc;
     color: black;
     text-decoration: none;
-    padding: 1rem;
+    
 
 }
 
 .login{
  text-align: center;   
 
+}
+.link form{
+border-radius: 30px;
 }
