@@ -16,11 +16,11 @@
 </head>
 <body>
     <h1>WelCome URL Shortener</h1>
-    <div>
+<div class="link">
     <form method="POST" action="/url">
-        <label>Enter Your Original URL</label>
+        <label>Past Your long link here</label>
         <input type="text" name="url" placeholder="https://example.com">
-        <button type="submit">Generate</button>
+        <button type="submit">Get your link</button>
     </form>
 </div>
 <% if (locals.id) { %>
@@ -35,7 +35,7 @@
     </p>
 </div>
    <% } %>
-<div>
+<div class="dashboard">
      <% if (locals.urls) { %>
     <table>
         <thead>
