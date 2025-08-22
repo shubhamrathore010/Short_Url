@@ -14,11 +14,15 @@
 </head>
 <body>
     <!-- In views/signup.ejs -->
+<!-- <% if (typeof alert !== 'undefined') { %>
+  <div class="alert"><%= alert %></div>
+<% } %> -->
 <% if (typeof alert !== 'undefined') { %>
   <div class="alert"><%= alert %></div>
 <% } %>
 
 <!-- ...existing signup form... -->
+ <div class="signup">
     <form action="/user" method="post">
         <div class="signup"><h1>Sign up</h1></div>
         <label>Full Name</label>
@@ -29,5 +33,6 @@
         <input type="password" required name="password">
         <button type="submit">Signup</button>
     </form>
+</div>
 </body>
 </html>

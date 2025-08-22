@@ -21,7 +21,7 @@
 }
 
 .link input[type="text"] {
-  width: 100%;
+  width: 80%;
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -97,4 +97,135 @@
 
 .dashboard a:hover {
   text-decoration: underline;
+}
+
+
+/* Login page  */
+
+.login{
+  text-align: center;
+
+}
+
+.loginform form {
+    background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  width: 400px;
+  text-align: left;
+}
+
+.loginform {
+
+   display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.loginform label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.loginform input  {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.loginform button {
+  margin-top: 1rem;
+  width: 60%;
+  padding: 12px;
+  background: linear-gradient(90deg, #007bff, #0056d6);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.loginform button:hover {
+  background: linear-gradient(90deg, #0056d6, #0041a8);
+}
+/* alert */
+
+.alert {
+      padding: 20px;
+      background-color: #ec766e; /* Example: Red for danger */
+      color: white;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      width: 60%;
+      justify-items: right;
+}
+
+/* signup */
+
+
+.signup {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.signup form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  width: 400px;
+  text-align: left;
+}
+
+.signup label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.signup input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.signup button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #007bff, #0056d6);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.signup button:hover {
+  background: linear-gradient(90deg, #0056d6, #0041a8);
+}
+
+.url {
+  width: 80%;
+  background: #fff;
+  margin-top:30px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  /* margin-bottom: 20px; */
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+   display: flex;
+  justify-content: center;
+  text-align: center;
 }
