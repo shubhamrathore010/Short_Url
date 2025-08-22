@@ -3,23 +3,32 @@ const User = require('../models/user')
 const { setUser } = require('../service/auth') 
 
 async function handleUserSignup(req, res) {
+  try {
 const { name, email, password } = req.body;
 
 // Check if email already exists
-const existingUser = await User.findOne({ email: req.body.email });
+// const existingUser = await User.findOne({ email: req.body.email });
+const existingUser = await User.findOne({ email});
+
 if(existingUser){
-  
-  return res.render('signup',  { error: "Email already exists" })
+  return res.render('signup',  { alert: "Email already exists" })
     // return res.status(400).json({ message: "Email already exists" });
 }
-  await User.create({
-    name,
-    email,
-    password,
-  });
-  return res.render("home");
-  // return res.redirect('/');
-   
+
+const newUser = new User({ name, email, password });
+await newUser.save()
+
+  // await User.create({
+  //   name,
+  //   email,
+  //   password,
+  // });
+  return res.render("home", { alert: "Signup successful!" });
+  // return res.redirect('/');   
+} catch(err){
+  console.error(err);
+  return res.status(500).send("Server error");
+}
 }
 
 async function handleUserLogin(req, res) {
@@ -34,7 +43,6 @@ async function handleUserLogin(req, res) {
 
   if(!user) 
     return res.render('signup', {alert: "User not found with this gmail, Please sign up first."})
-
 
   // const sessionId = uuidv4();
   // setUser(sessionId, user);
