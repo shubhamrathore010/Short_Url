@@ -17,8 +17,10 @@
 <!-- <% if (typeof alert !== 'undefined') { %>
   <div class="alert"><%= alert %></div>
 <% } %> -->
-<% if (typeof alert !== 'undefined') { %>
-  <div class="alert"><%= alert %></div>
+<% if (typeof alert !== "undefined") { %>
+  <div class="alert">
+    <%- alert %>
+</div>
 <% } %>
 
 <!-- ...existing signup form... -->

@@ -11,7 +11,7 @@ const { name, email, password } = req.body;
 const existingUser = await User.findOne({ email});
 
 if(existingUser){
-  return res.render('signup',  { alert: "Email already exists" })
+  return res.render('signup',  { alert: 'Email already exists. <a href="/login">Login here</a>'})
     // return res.status(400).json({ message: "Email already exists" });
 }
 
